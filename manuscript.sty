@@ -1,0 +1,54 @@
+% Declare that this style file requires at least LaTeX version 2e.
+\NeedsTeXFormat{LaTeX2e}
+
+% Provide the name of your page, the date it was last updated, and a comment about what it's used for
+\ProvidesPackage{mystyle}[2010/07/28 BBischof's custom LaTeX style]
+
+% Now paste your code from the preamble here
+%% Load packages and settings
+\RequirePackage[export]{adjustbox}
+\RequirePackage{amsmath}
+\RequirePackage{blindtext}
+\RequirePackage{caption}
+\RequirePackage[en-US]{datetime2}
+\RequirePackage{enumitem}
+\RequirePackage{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\RequirePackage{lineno}
+\RequirePackage{mathtools}
+\RequirePackage{subfiles}
+\RequirePackage[usenames,dvipsnames]{xcolor}
+\setlist[enumerate]{nosep}
+
+%% Formatting figures and legends
+% \graphicspath{{figs/}} % avoid full path in includegraphics{} calls
+\setkeys{Gin}{width=6in} % increase width of figures to 6 inches
+% \setkeys{Gin}{width=1\linewidth} % toggle figure width back to text width
+\captionsetup[figure]{
+    labelfont={bf},
+    name={},
+    labelsep=period,
+    font=scriptsize, width=1.2\textwidth,
+    singlelinecheck=off
+}
+\setenumerate[0]{label=\textbf{(\Alph*)}} % correct enumeration for figure legends
+
+\modulolinenumbers[1] % number each line
+\bibliographystyle{elsarticle-num}
+\journal{\normalfont\sffamily bio\textcolor{red}{R}$\chi$iv} % journal name (biorxiv)
+
+%% Commands for placeholders
+\newcommand{\TOPIC}[1]{\textbf{($\P scope |$ #1)}}
+\newcommand{\REFME}[0]{\colorbox{pink}{REF}}
+\newcommand{\ABBR}[1]{\colorbox{CornflowerBlue!40}{#1}}
+\newcommand{\STATS}[1]{\colorbox{BurntOrange!50}{#1}}
+
+% Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
+\endinput

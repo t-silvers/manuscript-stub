@@ -1,0 +1,62 @@
+\documentclass{elsarticle}
+\usepackage{manuscript}
+
+\begin{document}
+
+%% Frontmatter
+\begin{frontmatter}
+\title{manuscript-stub}
+
+%% Authors
+\author[1]{First Au}
+\author[2,3]{Middle Au}
+\author[4]{Last Au\corref{corresponding}}
+
+\address[1]{Affiliation one}
+\address[2]{Affiliation two}
+\address[3]{Affiliation three}
+\address[4]{Affiliation four}
+
+\cortext[corresponding]{Corresponding author}
+\ead{corresponding\_auth@stanford.edu}
+
+%% Abstract
+\begin{abstract}
+\subfile{03-Sections/01-Abstract}
+\end{abstract}
+\begin{keyword}
+kw1 \sep kw2 \sep kw3 \sep kw4
+\end{keyword}
+\end{frontmatter}
+\linenumbers % show line numbers
+
+%% Main text
+\subfile{03-Sections/02-Introduction} % Introduction
+
+%% Results
+\section{Results}
+\subfile{03-Sections/03-Results-one}
+\subfile{03-Sections/04-Results-two}
+\subfile{03-Sections/05-Results-three}
+\subfile{03-Sections/06-Results-four}
+\subfile{03-Sections/07-Discussion} % Discussion
+\subfile{03-Sections/08-Materials-Methods} % Methods
+
+%% Acknowledgements, Author Contributions, COI
+\subfile{03-Sections/09-Acknowledgements}
+
+%% References
+\bibliography{references,non-mendeley-ref}
+
+%% Figures
+\newpage
+\renewcommand{\thefigure}{Figure \arabic{figure}}
+\subfile{03-Sections/10-Main-Figures}
+
+%% Supplemental
+\renewcommand{\thefigure}{Figure S\arabic{figure}}
+\setcounter{figure}{0} % restart supplementary figures numbering
+\subfile{03-Sections/11-Supplementary-Information}
+\subfile{03-Sections/12-Supplementary-Figures}
+
+\end{document}
